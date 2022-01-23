@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+//MARK: - Output
+protocol HLViewProtocol: AnyObject {
+    func success()
+    func failure(error: Error)
+}
