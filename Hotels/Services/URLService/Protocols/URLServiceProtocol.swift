@@ -8,5 +8,7 @@
 import Foundation
 
 protocol URLServiceProtocol {
-    func fetchURLWithComponents( from url: String, components: [URLQueryItem]) -> URL?
+    func getHotelsURL() -> URL?
+    func getHotelURL(withHotelID id: Int) -> URL?
+    func getHotelImageURL(withImageID id: String) -> URL?
 }

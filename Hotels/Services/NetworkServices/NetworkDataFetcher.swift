@@ -5,7 +5,8 @@
 //  Created by Andrey Alymov on 22.01.2022.
 //
 
-import Foundation
+import UIKit
+import Kingfisher
 
 struct NetworkDataFetcher: NetworkDataFetcherProtocol {
     
@@ -34,5 +35,16 @@ struct NetworkDataFetcher: NetworkDataFetcherProtocol {
         }
     }
     
-    
+    public func fetchImage(withURL url: URL, image: UIImageView) -> Void {
+        image.kf.indicatorType = .activity
+        image.kf.indicator?.startAnimatingView()
+        image.kf.setImage(
+            with: url, placeholder: UIImage(named: "NoPhoto"),
+            options: [
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
+        image.kf.indicator?.stopAnimatingView()
+    }
 }

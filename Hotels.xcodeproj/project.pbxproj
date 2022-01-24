@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04128C96279C6CCD008FAD06 /* HotelFullInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C95279C6CCD008FAD06 /* HotelFullInfoData.swift */; };
-		04128C99279C7090008FAD06 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C98279C7090008FAD06 /* URLService.swift */; };
-		04128C9B279C7259008FAD06 /* ApiURLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C9A279C7259008FAD06 /* ApiURLService.swift */; };
-		04128C9D279C7449008FAD06 /* URLServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C9C279C7449008FAD06 /* URLServiceProtocol.swift */; };
-		04128C9F279C7479008FAD06 /* ApiURLServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C9E279C7479008FAD06 /* ApiURLServiceProtocol.swift */; };
+		04128C9B279C7259008FAD06 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C9A279C7259008FAD06 /* URLService.swift */; };
+		04128C9F279C7479008FAD06 /* URLServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128C9E279C7479008FAD06 /* URLServiceProtocol.swift */; };
 		04128CA2279C79F4008FAD06 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CA1279C79F4008FAD06 /* NetworkError.swift */; };
 		04128CA6279C7AAD008FAD06 /* ApiNetworkDataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CA5279C7AAD008FAD06 /* ApiNetworkDataFetcherProtocol.swift */; };
 		04128CA8279C7B54008FAD06 /* NetworkDataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CA7279C7B54008FAD06 /* NetworkDataFetcherProtocol.swift */; };
@@ -64,10 +62,8 @@
 
 /* Begin PBXFileReference section */
 		04128C95279C6CCD008FAD06 /* HotelFullInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelFullInfoData.swift; sourceTree = "<group>"; };
-		04128C98279C7090008FAD06 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
-		04128C9A279C7259008FAD06 /* ApiURLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURLService.swift; sourceTree = "<group>"; };
-		04128C9C279C7449008FAD06 /* URLServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLServiceProtocol.swift; sourceTree = "<group>"; };
-		04128C9E279C7479008FAD06 /* ApiURLServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURLServiceProtocol.swift; sourceTree = "<group>"; };
+		04128C9A279C7259008FAD06 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
+		04128C9E279C7479008FAD06 /* URLServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLServiceProtocol.swift; sourceTree = "<group>"; };
 		04128CA1279C79F4008FAD06 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		04128CA5279C7AAD008FAD06 /* ApiNetworkDataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkDataFetcherProtocol.swift; sourceTree = "<group>"; };
 		04128CA7279C7B54008FAD06 /* NetworkDataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcherProtocol.swift; sourceTree = "<group>"; };
@@ -143,13 +139,12 @@
 			isa = PBXGroup;
 			children = (
 				04128CA3279C7A81008FAD06 /* Protocols */,
-				04128C98279C7090008FAD06 /* URLService.swift */,
-				04128C9A279C7259008FAD06 /* ApiURLService.swift */,
+				04128C9A279C7259008FAD06 /* URLService.swift */,
 			);
 			path = URLService;
 			sourceTree = "<group>";
 		};
-		04128CA0279C794C008FAD06 /* NetworkService */ = {
+		04128CA0279C794C008FAD06 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
 				04128CA4279C7A94008FAD06 /* Protocols */,
@@ -158,14 +153,13 @@
 				04128CAD279C7EEE008FAD06 /* NetworkDataFetcher.swift */,
 				04128CB1279C8555008FAD06 /* ApiNetworkDataFetcher.swift */,
 			);
-			path = NetworkService;
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 		04128CA3279C7A81008FAD06 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				04128C9C279C7449008FAD06 /* URLServiceProtocol.swift */,
-				04128C9E279C7479008FAD06 /* ApiURLServiceProtocol.swift */,
+				04128C9E279C7479008FAD06 /* URLServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -285,7 +279,7 @@
 		04FE0ACF279ACB240064A177 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				04128CA0279C794C008FAD06 /* NetworkService */,
+				04128CA0279C794C008FAD06 /* NetworkServices */,
 				04128C97279C7082008FAD06 /* URLService */,
 			);
 			path = Services;
@@ -622,7 +616,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04128CAE279C7EEE008FAD06 /* NetworkDataFetcher.swift in Sources */,
-				04128C9D279C7449008FAD06 /* URLServiceProtocol.swift in Sources */,
 				04128C96279C6CCD008FAD06 /* HotelFullInfoData.swift in Sources */,
 				04128CAC279C7C57008FAD06 /* NetworkService.swift in Sources */,
 				04FE0AE2279ACD520064A177 /* Router.swift in Sources */,
@@ -636,13 +629,12 @@
 				04128CA8279C7B54008FAD06 /* NetworkDataFetcherProtocol.swift in Sources */,
 				04FE0AEA279B0FD50064A177 /* HLTableViewAdapter.swift in Sources */,
 				04FE0A9A279AC8890064A177 /* SceneDelegate.swift in Sources */,
-				04128C9F279C7479008FAD06 /* ApiURLServiceProtocol.swift in Sources */,
+				04128C9F279C7479008FAD06 /* URLServiceProtocol.swift in Sources */,
 				04FE0AE8279ACD790064A177 /* ModuleConfigurator.swift in Sources */,
-				04128C9B279C7259008FAD06 /* ApiURLService.swift in Sources */,
+				04128C9B279C7259008FAD06 /* URLService.swift in Sources */,
 				04128CA6279C7AAD008FAD06 /* ApiNetworkDataFetcherProtocol.swift in Sources */,
 				04FE0ADE279ACD050064A177 /* HLViewPresenterProtocol.swift in Sources */,
 				04128CB6279D69A9008FAD06 /* HotelModel.swift in Sources */,
-				04128C99279C7090008FAD06 /* URLService.swift in Sources */,
 				04128CB4279CCDA6008FAD06 /* UIAlertController+Error.swift in Sources */,
 				04128CB2279C8555008FAD06 /* ApiNetworkDataFetcher.swift in Sources */,
 				04FE0AD9279ACC2D0064A177 /* HotelsListViewController.swift in Sources */,

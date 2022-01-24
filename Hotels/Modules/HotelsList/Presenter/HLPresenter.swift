@@ -24,7 +24,8 @@ final class HLPresenter: HLViewPresenterProtocol {
     }
     
     //MARK: - Public methods
-    public func getHotels() {         // Fetching hotels (json) from the internet
+    // Fetching hotels (json) from the internet
+    public func getHotels() {
         networkDataFetcher?.fetchHotels { [ weak self ] result in
             guard let self = self else { return }
             switch result {

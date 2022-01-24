@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 
 class HLTableViewCell: UITableViewCell {
     
@@ -21,6 +20,9 @@ class HLTableViewCell: UITableViewCell {
     private var starsLbl = UILabel()
     private var hotelImage = UIImageView()
     private var addressImage = UIImageView()
+    
+    //MARK: - Public properties
+    var networkDataFetcher: ApiNetworkDataFetcherProtocol? = ApiNetworkDataFetcher()
     
     //MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -45,11 +47,24 @@ class HLTableViewCell: UITableViewCell {
         hotelAddressLbl.text = model?.address ?? "unknown adress"
         centerDistanceLbl.text = String(describing: Int(model?.distance ?? 0)) + "m from center"
         starsLbl.text = String(repeating: "★", count: Int(model?.stars ?? 0)) + String(repeating: "☆", count: 5 - Int(model?.stars ?? 0))
+        fetchImage(with: model?.id ?? 40611)
     }
 }
 
 //MARK: - Extention for setting hotel list cells
 extension HLTableViewCell {
+    
+    private func fetchImage(with id: Int) {
+        networkDataFetcher?.fetchHotel(withHotelID: id) { [ weak self ] result in
+            switch result {
+            case .success(let data):
+                    self?.networkDataFetcher?.fetchImage(withID: data?.image ?? "", image: self?.hotelImage ?? UIImageView())
+            case .failure(let error):
+                self?.hotelImage.image = UIImage(systemName: "NoPhoto")
+                print("Image fetching error - \(error.localizedDescription)")
+            }
+        }
+    }
     
     //MARK: - Adding all subviews
     private func addSubviews() {
@@ -65,8 +80,16 @@ extension HLTableViewCell {
     private func settingView() {
         
         // hotel main image
-        hotelImage.backgroundColor = .blue
-        hotelImage.layer.cornerRadius = 10
+        hotelImage.contentMode = .scaleAspectFill
+        hotelImage.layer.masksToBounds = true
+        hotelImage.frame = bounds
+        hotelImage.layer.cornerRadius = 8
+        hotelImage.layer.borderWidth = 2
+        hotelImage.layer.borderColor = .init(gray: 1, alpha: 1)
+        hotelImage.layer.shadowColor = UIColor.gray.cgColor
+        hotelImage.layer.shadowOffset = .zero
+        hotelImage.layer.shadowOpacity = 0.2
+        hotelImage.layer.shadowRadius = 2
         
         // fonts size
         hotelNameLbl.font = .boldSystemFont(ofSize: 20)
@@ -87,10 +110,10 @@ extension HLTableViewCell {
         // main hotel image
         hotelImage.snp.makeConstraints { make in
             make.width.equalTo(90)
-            make.height.equalTo(84)
+            make.height.equalTo(80)
             make.left.equalToSuperview().inset(15)
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(8)
+            make.top.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(10)
         }
         
         // hotel name label
@@ -130,7 +153,7 @@ extension HLTableViewCell {
             make.height.equalTo(12)
             make.right.equalToSuperview().inset(15)
             make.left.equalToSuperview().inset(270)
-            make.top.equalToSuperview().inset(72)
+            make.top.equalToSuperview().inset(73)
         }
     }
 }

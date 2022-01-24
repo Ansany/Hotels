@@ -7,14 +7,24 @@
 
 import Foundation
 
-//MARK: - Create URL from queryItems
 struct URLService: URLServiceProtocol {
     
-    public func fetchURLWithComponents(from urlString: String, components: [URLQueryItem]) -> URL? {
-        guard var urlComponents = URLComponents(string: urlString) else { return nil }
-        urlComponents.queryItems = components
-        guard let url = urlComponents.url else { return nil }
+    //MARK: - Private properties
+    private let baseURL = "https://raw.githubusercontent.com/iMofas/ios-android-test/master/"
+    
+    //MARK: - Public methods
+    public func getHotelsURL() -> URL? {
+        guard let url = URL(string: baseURL + "0777.json") else { return nil }
+        return url
+    }
+    
+    public func getHotelURL(withHotelID id: Int) -> URL? {
+        guard let url = URL(string: baseURL + String(id) + ".json") else { return nil }
+        return url
+    }
+    
+    public func getHotelImageURL(withImageID id: String) -> URL? {
+        guard let url = URL(string: baseURL + id) else { return nil }
         return url
     }
 }
-
