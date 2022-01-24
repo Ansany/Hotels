@@ -9,8 +9,8 @@ import UIKit
 
 class HotelsListViewController: UIViewController {
     
-    //MARK: - Views
-    let hotelsTableView = UITableView()
+    //MARK: - Interface elements
+    private lazy var hotelsTableView = UITableView()
     weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: - Properties

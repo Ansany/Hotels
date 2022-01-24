@@ -14,12 +14,12 @@ class HLTableViewCell: UITableViewCell {
     static let identifier = String(describing: HLTableViewCell.self)
     
     //MARK: - Private properties
-    private var hotelNameLbl = UILabel()
-    private var hotelAddressLbl = UILabel()
-    private var centerDistanceLbl = UILabel()
-    private var starsLbl = UILabel()
-    private var hotelImage = UIImageView()
-    private var addressImage = UIImageView()
+    private lazy var hotelNameLbl = UILabel()
+    private lazy var hotelAddressLbl = UILabel()
+    private lazy var centerDistanceLbl = UILabel()
+    private lazy var starsLbl = UILabel()
+    private lazy var hotelImage = UIImageView()
+    private lazy var addressImage = UIImageView()
     
     //MARK: - Public properties
     var networkDataFetcher: ApiNetworkDataFetcherProtocol? = ApiNetworkDataFetcher()
