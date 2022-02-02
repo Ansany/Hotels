@@ -27,15 +27,9 @@ struct ApiNetworkDataFetcher: ApiNetworkDataFetcherProtocol {
         networkDataFetcher.fetchDecodedData(from: url, completion: completion)
     }
     
-    // Fetch data from .json with hotel ID - one hotel for HotelDetailVC (and for making hotel image link)
-    public func fetchHotel(withHotelID id: Int, completion: @escaping (Result<HotelModel?, Error>) -> Void) {
-        guard let url = urlService.getHotelURL(withHotelID: id) else { return }
-        networkDataFetcher.fetchDecodedData(from: url, completion: completion)
-    }
-    
     // Fetch image with id from one hotel
-    public func fetchImage(withID id: String, image: UIImageView) -> Void {
-        guard let url = urlService.getHotelImageURL(withImageID: id) else { return }
+    public func fetchImage(withHotelID id: Int, imgID: String, image: UIImageView) -> Void {
+        guard let url = urlService.getHotelImageURL(withHotelID: id, imgID: imgID) else { return }
         networkDataFetcher.fetchImage(withURL: url, image: image)
     }
 }

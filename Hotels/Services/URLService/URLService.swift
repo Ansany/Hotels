@@ -10,21 +10,16 @@ import Foundation
 struct URLService: URLServiceProtocol {
     
     //MARK: - Private properties
-    private let baseURL = "https://raw.githubusercontent.com/iMofas/ios-android-test/master/"
+    private let baseURL = "https://raw.githubusercontent.com/Ansany/JsonDB/main/Hotels/"
     
     //MARK: - Public methods
     public func getHotelsURL() -> URL? {
-        guard let url = URL(string: baseURL + "0777.json") else { return nil }
+        guard let url = URL(string: baseURL + "SaintPetersburgHotels.json") else { return nil }
         return url
     }
     
-    public func getHotelURL(withHotelID id: Int) -> URL? {
-        guard let url = URL(string: baseURL + String(id) + ".json") else { return nil }
-        return url
-    }
-    
-    public func getHotelImageURL(withImageID id: String) -> URL? {
-        guard let url = URL(string: baseURL + id) else { return nil }
+    public func getHotelImageURL(withHotelID hotelID: Int, imgID imageID: String) -> URL? {
+        guard let url = URL(string: baseURL + "/\(hotelID)/\(imageID).jpg") else { return nil }
         return url
     }
 }
