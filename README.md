@@ -1,7 +1,7 @@
 # Hotels
 
 ## Проект в данный момент находится в работе
-<img width="222" alt="HotelMain" src="https://user-images.githubusercontent.com/68674699/151939464-29e5b20d-b18b-4296-821e-89184c253862.png">
+<img width="291" alt="HotelsMain" src="https://user-images.githubusercontent.com/68674699/152143753-1dfd0aaa-28e8-4f37-9def-a47d11ca8ae1.png">
 
  ## О проекте
  - Проект Hotels - бронирование отелей.
