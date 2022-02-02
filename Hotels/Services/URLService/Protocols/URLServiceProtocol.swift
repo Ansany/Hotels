@@ -9,6 +9,5 @@ import Foundation
 
 protocol URLServiceProtocol {
     func getHotelsURL() -> URL?
-    func getHotelURL(withHotelID id: Int) -> URL?
-    func getHotelImageURL(withImageID id: String) -> URL?
+    func getHotelImageURL(withHotelID hotelID: Int, imgID imageID: String) -> URL?
 }

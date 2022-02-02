@@ -19,7 +19,6 @@
 		04128CB0279C80F8008FAD06 /* JSONDecoder+DecodedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CAF279C80F8008FAD06 /* JSONDecoder+DecodedData.swift */; };
 		04128CB2279C8555008FAD06 /* ApiNetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CB1279C8555008FAD06 /* ApiNetworkDataFetcher.swift */; };
 		04128CB4279CCDA6008FAD06 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CB3279CCDA6008FAD06 /* UIAlertController+Error.swift */; };
-		04128CB6279D69A9008FAD06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CB5279D69A9008FAD06 /* HotelModel.swift */; };
 		04128CC9279F6A49008FAD06 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04128CC7279F6A49008FAD06 /* HotelDetailViewController.swift */; };
 		04128CCA279F6A49008FAD06 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04128CC8279F6A49008FAD06 /* HotelDetailViewController.xib */; };
 		04FE0A98279AC8890064A177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE0A97279AC8890064A177 /* AppDelegate.swift */; };
@@ -75,7 +74,6 @@
 		04128CAF279C80F8008FAD06 /* JSONDecoder+DecodedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+DecodedData.swift"; sourceTree = "<group>"; };
 		04128CB1279C8555008FAD06 /* ApiNetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkDataFetcher.swift; sourceTree = "<group>"; };
 		04128CB3279CCDA6008FAD06 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
-		04128CB5279D69A9008FAD06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 		04128CC7279F6A49008FAD06 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
 		04128CC8279F6A49008FAD06 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
 		04FE0A94279AC8890064A177 /* Hotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				04128C95279C6CCD008FAD06 /* HotelFullInfoData.swift */,
-				04128CB5279D69A9008FAD06 /* HotelModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -666,7 +663,6 @@
 				04128C9B279C7259008FAD06 /* URLService.swift in Sources */,
 				04128CA6279C7AAD008FAD06 /* ApiNetworkDataFetcherProtocol.swift in Sources */,
 				04FE0ADE279ACD050064A177 /* HLViewPresenterProtocol.swift in Sources */,
-				04128CB6279D69A9008FAD06 /* HotelModel.swift in Sources */,
 				04128CB4279CCDA6008FAD06 /* UIAlertController+Error.swift in Sources */,
 				04128CB2279C8555008FAD06 /* ApiNetworkDataFetcher.swift in Sources */,
 				04FE0AD9279ACC2D0064A177 /* HotelsListViewController.swift in Sources */,

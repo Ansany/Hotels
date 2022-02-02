@@ -44,27 +44,20 @@ class HLTableViewCell: UITableViewCell {
     //MARK: - Public methods
     public func configure(with model: HotelFullInfoData?) {
         hotelNameLbl.text = model?.name ?? "unknown name"
-        hotelAddressLbl.text = model?.address ?? "unknown adress"
-        centerDistanceLbl.text = String(describing: Int(model?.distance ?? 0)) + "m from center"
-        starsLbl.text = String(repeating: "★", count: Int(model?.stars ?? 0)) + String(repeating: "☆", count: 5 - Int(model?.stars ?? 0))
-        fetchImage(with: model?.id ?? 40611)
+        hotelAddressLbl.text = model?.fullInfo.address ?? "unknown address"
+        centerDistanceLbl.text = String(describing: Int(model?.fullInfo.distance ?? 0)) + "м от центра"
+        starsLbl.text = String(repeating: "★", count: model?.fullInfo.stars ?? 0) + String(repeating: "☆", count: 5 - (model?.fullInfo.stars ?? 0))
+        fetchImage(with: model?.id ?? 0, imgID: model?.fullInfo.firstImage ?? "")
     }
 }
 
 //MARK: - Extention for setting hotel list cells
 extension HLTableViewCell {
     
-    private func fetchImage(with id: Int) {
-        networkDataFetcher?.fetchHotel(withHotelID: id) { [ weak self ] result in
-            switch result {
-            case .success(let data):
-                    self?.networkDataFetcher?.fetchImage(withID: data?.image ?? "", image: self?.hotelImage ?? UIImageView())
-            case .failure(let error):
-                self?.hotelImage.image = UIImage(systemName: "NoPhoto")
-                print("Image fetching error - \(error.localizedDescription)")
-            }
-        }
+    private func fetchImage(with HotelID: Int, imgID: String) {
+        networkDataFetcher?.fetchImage(withHotelID: HotelID, imgID: imgID, image: hotelImage)
     }
+    
     
     //MARK: - Adding all subviews
     private func addSubviews() {
@@ -84,8 +77,7 @@ extension HLTableViewCell {
         hotelImage.layer.masksToBounds = true
         hotelImage.frame = bounds
         hotelImage.layer.cornerRadius = 8
-        hotelImage.layer.borderWidth = 2
-        hotelImage.layer.borderColor = .init(gray: 1, alpha: 1)
+
         hotelImage.layer.shadowColor = UIColor.gray.cgColor
         hotelImage.layer.shadowOffset = .zero
         hotelImage.layer.shadowOpacity = 0.2

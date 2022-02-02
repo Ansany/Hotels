@@ -7,15 +7,24 @@
 
 import Foundation
 
-struct HotelFullInfoData: Decodable {
+struct HotelFullInfoData: Codable {
     
     let id: Int?
     let name: String?
+    let fullInfo: FullInfo
+
+}
+
+struct FullInfo: Codable {
+    
     let address: String?
-    let stars: Double?
+    let description: String?
+    let stars: Int?
     let distance: Double?
-    let suites_availability: String?
-    let image: String?
+    let suitesAvailability: Int?
+    let firstImage: String?
+    let images: [String]?
     let lat: Double?
     let lon: Double?
+    
 }
