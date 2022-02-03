@@ -37,8 +37,8 @@ class HLTableViewCell: UITableViewCell {
     //MARK: - Private methods
     private func setupCells() {
         addSubviews()
-        settingView()
         setupConstraints()
+        settingView()
     }
 
     //MARK: - Public methods
@@ -74,14 +74,13 @@ extension HLTableViewCell {
         
         // hotel main image
         hotelImage.contentMode = .scaleAspectFill
-        hotelImage.layer.masksToBounds = true
-        hotelImage.frame = bounds
+        hotelImage.clipsToBounds = true
         hotelImage.layer.cornerRadius = 8
 
-        hotelImage.layer.shadowColor = UIColor.gray.cgColor
-        hotelImage.layer.shadowOffset = .zero
-        hotelImage.layer.shadowOpacity = 0.2
-        hotelImage.layer.shadowRadius = 2
+//        hotelImage.layer.shadowColor = UIColor.gray.cgColor
+//        hotelImage.layer.shadowOffset = .zero
+//        hotelImage.layer.shadowOpacity = 0.8
+//        hotelImage.layer.shadowRadius = 2
         
         // fonts size
         hotelNameLbl.font = .boldSystemFont(ofSize: 20)
@@ -99,52 +98,43 @@ extension HLTableViewCell {
     //MARK: - Make constraints for cell elements
     private func setupConstraints() {
         
-        // main hotel image
         hotelImage.snp.makeConstraints { make in
             make.width.equalTo(90)
             make.height.equalTo(80)
-            make.left.equalToSuperview().inset(15)
-            make.top.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(15)
+            make.top.bottom.equalToSuperview().inset(10)
         }
         
-        // hotel name label
         hotelNameLbl.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(115)
-            make.right.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().inset(115)
+            make.trailing.equalToSuperview().inset(15)
             make.top.equalToSuperview().inset(8)
         }
         
-        // hotel address label
         hotelAddressLbl.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(132)
-            make.right.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().inset(132)
+            make.trailing.equalToSuperview().inset(15)
             make.top.equalToSuperview().inset(47)
         }
         
-        // location pin (adress image)
         addressImage.snp.makeConstraints { make in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
-            make.left.equalToSuperview().inset(115)
+            make.width.height.equalTo(16)
+            make.leading.equalToSuperview().inset(115)
             make.top.equalToSuperview().inset(48)
             
         }
         
-        // distance from city center
         centerDistanceLbl.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(116)
+            make.leading.equalToSuperview().inset(116)
             make.top.equalToSuperview().inset(72)
-            make.right.equalTo(starsLbl).inset(15)
+            make.trailing.equalTo(starsLbl).inset(15)
         }
         
-        // hotel stars
         starsLbl.textAlignment = .right
         starsLbl.snp.makeConstraints { make in
-            make.width.equalTo(12)
-            make.height.equalTo(12)
-            make.right.equalToSuperview().inset(15)
-            make.left.equalToSuperview().inset(270)
+            make.width.height.equalTo(12)
+            make.trailing.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().inset(270)
             make.top.equalToSuperview().inset(73)
         }
     }
