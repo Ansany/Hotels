@@ -11,7 +11,7 @@ class HotelsListViewController: UIViewController {
     
     //MARK: - Interface elements
     private lazy var hotelsTableView = UITableView()
-    weak var activityIndicator: UIActivityIndicatorView!
+    private weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: - Properties
     var presenter: HLViewPresenterProtocol! // Input
