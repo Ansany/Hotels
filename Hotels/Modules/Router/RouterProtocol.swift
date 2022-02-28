@@ -9,4 +9,5 @@ import Foundation
 
 protocol RouterProtocol: RouterMain {
     func showHotelsListLVC()
+    func showHotelDetailVC()
 }

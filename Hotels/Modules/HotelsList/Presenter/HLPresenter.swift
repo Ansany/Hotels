@@ -40,6 +40,16 @@ final class HLPresenter: HLViewPresenterProtocol {
     
     //MARK: - User's actions
     func tapOnHotel() {
-        print("Hotel ->")
+        print("TapOnHotel")
+    }
+    
+    func sortHotels(_ by: SortMethods) {
+        switch by {
+        case .byStars:
+            self.hotels = hotels?.sorted { $0.fullInfo.stars ?? 1 > $1.fullInfo.stars ?? 1 }
+        case .byDistance:
+            self.hotels = hotels?.sorted { $0.fullInfo.distance ?? 99999 < $1.fullInfo.distance ?? 99999}
+        }
+        view?.success()
     }
 }

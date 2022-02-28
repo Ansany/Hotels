@@ -26,5 +26,12 @@ final class Router: RouterProtocol {
             navController.viewControllers = [hotelsListVC]
         }
     }
+    
+    func showHotelDetailVC() {
+        if let navController = navController {
+            guard let hotelDetailVC = configurator?.configureHDModule(with: self) else { return }
+            navController.viewControllers = [hotelDetailVC]
+        }
+    }
 
 }

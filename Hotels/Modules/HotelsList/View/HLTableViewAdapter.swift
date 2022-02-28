@@ -13,10 +13,10 @@ final class HLTableViewAdapter: NSObject {
     // MARK: - Properties
     private var view: UIView
     private var tableView: UITableView
-    var presenter: HLViewPresenterProtocol!
+    var presenter: HLViewPresenterProtocol?
     
     // MARK: - Initializator
-    init(tableView: UITableView, presenter: HLViewPresenterProtocol, view: UIView) {
+    init(tableView: UITableView, presenter: HLViewPresenterProtocol?, view: UIView) {
         self.tableView = tableView
         self.presenter = presenter
         self.view = view
@@ -51,13 +51,13 @@ final class HLTableViewAdapter: NSObject {
 // MARK: - UITableViewDataSource
 extension HLTableViewAdapter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.hotels?.count ?? 1
+        return presenter?.hotels?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: HLTableViewCell.self), for: indexPath) as? HLTableViewCell
-        let hotel = presenter.hotels?[indexPath.row]
+        let hotel = presenter?.hotels?[indexPath.row]
         cell?.configure(with: hotel)
         return cell ?? UITableViewCell()
     }
@@ -67,6 +67,7 @@ extension HLTableViewAdapter: UITableViewDataSource {
 extension HLTableViewAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.sortHotels(.byDistance)
     }
 }
 

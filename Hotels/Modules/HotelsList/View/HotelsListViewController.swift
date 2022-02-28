@@ -11,10 +11,10 @@ class HotelsListViewController: UIViewController {
     
     //MARK: - Interface elements
     private lazy var hotelsTableView = UITableView()
-    private weak var activityIndicator: UIActivityIndicatorView!
+    private weak var activityIndicator: UIActivityIndicatorView?
     
     //MARK: - Properties
-    var presenter: HLViewPresenterProtocol! // Input
+    var presenter: HLViewPresenterProtocol? // Input
     var adapter: HLTableViewAdapter? // setup tableView, dataSource & delegate
     
     override func viewDidLoad() {
@@ -42,9 +42,9 @@ extension HotelsListViewController: HLViewProtocol {
     
     func failure(error: Error) {
         let controller = UIAlertController.appErrorAlert(controllerTitlte: "Error", controllerMessage: "\(error.localizedDescription)", actionTitle: "Try again", cancelTitlte: "Cancel") { [ weak self ] _ in
-            self?.presenter.getHotels()
+            self?.presenter?.getHotels()
         } cancelHandler: { [ weak self ] _ in
-            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator?.stopAnimating()
         }
         present(controller, animated: true, completion: nil)
     }

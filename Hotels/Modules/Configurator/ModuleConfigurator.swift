@@ -19,4 +19,12 @@ final class ModuleConfigurator {
         return view
     }
     
+    //MARK: - Configure HotelDetail module
+    func configureHDModule(with router: RouterProtocol) -> UIViewController {
+        let view = HotelDetailViewController()
+        let networkDataFetcher = ApiNetworkDataFetcher()
+        
+        return view
+    }
+    
 }

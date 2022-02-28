@@ -14,4 +14,5 @@ protocol HLViewPresenterProtocol: AnyObject {
     init(view: HLViewProtocol, router: RouterProtocol, networkDataFetcher: ApiNetworkDataFetcherProtocol)
     func getHotels()
     func tapOnHotel()
+    func sortHotels(_ by: SortMethods)
 }
